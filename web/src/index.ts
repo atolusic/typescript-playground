@@ -1,5 +1,7 @@
-import {User} from './models/User'
+import {User, UserProps} from './models/User'
 
-const user = new User({name: 'new record', age: 1})
+const collection = User.buildUserCollection()
 
-user.save()
+collection.on('change', () => {
+  console.log(collection)
+})
